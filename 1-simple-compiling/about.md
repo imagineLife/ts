@@ -14,3 +14,9 @@
   - maintain console output with `preserveWatchOutput`
 
 ### tsconfig
+CompilerOptions: this object configs the ts compiler a bit.  
+- by default, outDir puts js file right next to the original locations of each ts file, here the description is to move the files to the `dist` dir 
+Include: where the ts compiler should find the source-code.
+
+### could use cli
+could use something like `--outDir` in a ts cli: `tsc --outDir dist`. Storing these details in a config file, though, can be a clearer way to translate compiling intentions in the code.
