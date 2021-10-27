@@ -34,4 +34,5 @@ IDEs 'know' about ts. IDEs have handy tidbits for ts.
 - Guards
 - Nullish vals
 - Generics
-- DIY Higher-order-functions
+- DIY 
+- Higher-order-functions
