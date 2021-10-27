@@ -16,4 +16,22 @@ IDEs 'know' about ts. IDEs have handy tidbits for ts.
   - Language Server
     - a piece of software
   - compiler
-- 
+
+## TS Topics
+- Compilation
+- Vars
+- Objects
+- Arrays
+- Union + Intersection Types
+- Interfaces && Aliases
+- Theories
+  - categorizing this type system
+  - set theory
+- DIY approach
+- Fns
+- Classes
+- Top & Bottom 
+- Guards
+- Nullish vals
+- Generics
+- DIY Higher-order-functions
