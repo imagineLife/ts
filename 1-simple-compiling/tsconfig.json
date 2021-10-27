@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "outDir": "dist", //where the output goes from the ts compiler
+    "target": "ES3" // target a low level of js
+  },
+  "include": ["src"]
+}
