@@ -109,4 +109,8 @@ onlyExplicitKeys({a:1234,b:'asdf',c:'asdfsdf'})
   returns err
   Object literal may only specify known properties, 
   and 'c' does not exist in type '{ a: number; b: string; }'.
+
+
+  - remove it
+  - add it to a clear type def
 */
