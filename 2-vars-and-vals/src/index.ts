@@ -24,3 +24,19 @@ arrays are.
 */
 
 const thisOne = 6; //sets the "type" to ... 6. not number
+
+
+
+
+/*
+  set un-used var types
+*/
+
+const RANDOM_TIME = Math.round(Math.random() * 500) + 500;
+let startTime = new Date();
+// set this var to be of type date, even though it is not initialized with val
+let endTime: Date;
+
+setTimeout(() => {
+  endTime = new Date()
+}, RANDOM_TIME);
