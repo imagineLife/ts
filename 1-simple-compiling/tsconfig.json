@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "dist", //where the output goes from the ts compiler
-    "target": "ES3" // target a low level of js
+    "target": "ES2017" // target a low level of js, was ES3
   },
   "include": ["src"]
 }
