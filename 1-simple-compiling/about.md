@@ -22,6 +22,9 @@ Include: where the ts compiler should find the source-code.
 could use something like `--outDir` in a ts cli: `tsc --outDir dist`. Storing these details in a config file, though, can be a clearer way to translate compiling intentions in the code.
 
 ## Output
+**NOTE**: install the typescript node mod globally.  
+To put this ts file through the compiler in watchmode, run `npm run dev`.  This creates or re-uses a `dist` dir, and puts the output js in there.  
+
 ### Setting the output "target"
 The ts config has a `target` field that declares what the output will be. Here, a few js versions:  
 
