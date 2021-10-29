@@ -22,6 +22,9 @@ Include: where the ts compiler should find the source-code.
 could use something like `--outDir` in a ts cli: `tsc --outDir dist`. Storing these details in a config file, though, can be a clearer way to translate compiling intentions in the code.
 
 ## Output
+### Setting the output "target"
+The ts config has a `target` field that declares what the output will be. Here, a few js versions:  
+
 with compiler config set to ES3, output is...  
 ```js
 "use strict";
@@ -127,5 +130,25 @@ export function addNumbersWithPromise(a, b, c) {
 (() => __awaiter(void 0, void 0, void 0, function* () {
     console.log(yield addNumbersWithPromise(2, 7, 500));
 }));
+
+```
+
+With the compiler config set to es2017, the output will look like...
+```js
+// resolves a promise after a time
+function resolveAfterTime(n) {
+    return new Promise(res => setTimeout(res, n));
+}
+;
+// calls resolveAfterTime, then add 2 vals
+export async function addNumbersWithPromise(a, b, c) {
+    await resolveAfterTime(c);
+    return a + b;
+}
+;
+// run it
+(async () => {
+    console.log(await addNumbersWithPromise(2, 7, 500));
+});
 
 ```
