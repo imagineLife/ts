@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outDir": "dist", //where the output goes from the ts compiler
+    "target": "ES2017", // target a low level of js, was ES3
+    "declaration": true // generate d.ts file in addition to js
+  },
+  "include": ["src"]
+}
