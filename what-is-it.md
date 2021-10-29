@@ -36,3 +36,14 @@ IDEs 'know' about ts. IDEs have handy tidbits for ts.
 - Generics
 - DIY 
 - Higher-order-functions
+
+## Static, Dynamic, and Nominal typing
+TS is static.  
+Java, C#, C++ are also static.  
+
+Others are dynamic, which run type equivalence at run time.  
+JS, Python, Ruby.  
+
+Nominal, or structural type systems, are about NAMING the types.  
+TS does this.  
+Java is a nominally typed language.  
