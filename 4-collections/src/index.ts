@@ -58,6 +58,10 @@ function stringRes(obj: {
     return middleManStr;
 }
 
+
+
+
+
 /*
   Optional Properties
 */
@@ -89,3 +93,20 @@ needsAllFields({a: 123, b: 'asdf'})
   declared undefined vals are not the same as 
     optional keys
 */ 
+
+
+
+
+/*
+  Extraneoous prop checking
+*/
+function onlyExplicitKeys(obj: {a:number, b: string}): boolean{
+  return true
+}
+
+onlyExplicitKeys({a:1234,b:'asdf',c:'asdfsdf'})
+/*
+  returns err
+  Object literal may only specify known properties, 
+  and 'c' does not exist in type '{ a: number; b: string; }'.
+*/
