@@ -25,6 +25,15 @@ could use something like `--outDir` in a ts cli: `tsc --outDir dist`. Storing th
 **NOTE**: install the typescript node mod globally.  
 To put this ts file through the compiler in watchmode, run `npm run dev`.  This creates or re-uses a `dist` dir, and puts the output js in there.  
 
+### Outputting a declaration file
+a "declaration file", expressing more clearly the "types" within the project, can be created & output.  
+in the `ts.config` can in clude a 
+```js 
+"compilerOptions": {
+    "declaration": true
+}
+```
+
 ### Setting the output "target"
 The ts config has a `target` field that declares what the output will be. Here, a few js versions:  
 
@@ -154,4 +163,14 @@ export async function addNumbersWithPromise(a, b, c) {
     console.log(await addNumbersWithPromise(2, 7, 500));
 });
 
+```
+
+### Outputting Node-Friendly Content
+Setting the project to be node-friendly (_CommonJS Modules included_), update the `tsconfig` file:
+```js
+{
+    compilerOptions: {
+        module: "CommonJS"
+    }
+}
 ```
