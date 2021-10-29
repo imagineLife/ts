@@ -20,3 +20,6 @@ let tupleArr = [1986,'October',49];
 let definedTup: [number, string] = [123,'asdf'];
 definedTup = ['qwer',234];
 // above throws err
+
+
+// NOTE: arr methods of push & pop wont throw err :/
