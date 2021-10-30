@@ -10,3 +10,11 @@ function errOrVal(): |['error', Error]|['success', {obj:'dummy val'}]{
 
 const [res, val] = errOrVal();
 console.log({res, val})
+
+// leveraging type-guards
+if(res === 'error'){
+  // do err handling
+  return;
+}
+
+console.log('not an error')
