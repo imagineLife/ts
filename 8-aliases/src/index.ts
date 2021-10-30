@@ -1,5 +1,5 @@
 import showContactInfo from './utils'
-
+import { showConditionalUserInfo } from './utils';
 showContactInfo({name: 'Joe', email: 'water'})
 
 let userWithMore = {
@@ -10,3 +10,4 @@ let userWithMore = {
 }
 
 showContactInfo(userWithMore)
+showConditionalUserInfo()
