@@ -11,7 +11,8 @@ function errOrVal(): |['error', Error]|['success', {obj:'dummy val'}]{
 const [res, val] = errOrVal();
 console.log({res, val})
 
-// leveraging type-guards
+// leveraging type-guards via "Discriminated unions"
+
 if(res === 'error'){
   // do err handling
   return;
