@@ -58,3 +58,17 @@ A Potato is both a type of VEGETABLE and type of STARCH.
 
 ## Interfaces or Aliases
 Consider when to use which:
+
+
+## Example
+```ts
+type Prim = string | number | boolean | null
+
+type JSObj = {
+  [k:string]: JSVal
+}
+type JSArr = JSVal[]
+type JSVal = Prim | JSArr
+
+function isJS(arg: JSVal){}
+```
