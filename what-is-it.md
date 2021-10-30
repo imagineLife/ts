@@ -64,11 +64,12 @@ Consider when to use which:
 ```ts
 type Prim = string | number | boolean | null
 
+type JSArr = JSVal[]
+type JSVal = Prim | JSArr
+
 type JSObj = {
   [k:string]: JSVal
 }
-type JSArr = JSVal[]
-type JSVal = Prim | JSArr
 
 function isJS(arg: JSVal){}
 ```
