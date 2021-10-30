@@ -54,3 +54,7 @@ Duck Typing... 'If it looks like a duck...'.
 ## Union Types
 Can be though of as 'OR' for types.  
 A Potato is both a type of VEGETABLE and type of STARCH.  
+
+
+## Interfaces or Aliases
+Consider when to use which:
