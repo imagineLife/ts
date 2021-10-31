@@ -18,3 +18,15 @@ class Vehicle{
 }
 
 let van = new Vehicle('Chrysler','MV', 2012);
+
+// ...this is a bit...VERBOSE!
+
+/*
+  Access modifier keywords review
+  - public
+    everyone can access the detail
+  - protected
+    only the instance itself and subclasses can access the detail
+  - private
+    only the instance itself can access the detail
+*/ 
