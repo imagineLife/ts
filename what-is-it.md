@@ -90,3 +90,9 @@ function isJS(arg: JSVal){}
 `any` is a top type.  
 Any value in js can be assigned to the `any` type.  
 `unknown` vals, though, do not work with `any`.  
+
+## Bottom Types
+These describe things that can hold no possible value.  
+Why?! Well... to explicitly state when a var can be worth nothing:
+- maybe in an `else` statement where all other `if` cases have been met
+- maybe in a `switch` default
