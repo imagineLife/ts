@@ -49,3 +49,17 @@ class Building{
     this.windows = windows;
   }
 }
+
+
+// private fields start with a '#'
+// read-only fields are declared with a `readonly` keyword
+
+
+// TS class syntax cleanup
+class Car {
+  constructor(
+    public make: string,
+    public model: string,
+    public year: number
+  ){}
+}
