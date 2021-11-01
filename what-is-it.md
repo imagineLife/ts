@@ -2,8 +2,17 @@
 ## Explicit intent
 Describing the 'types' that are regularly expected throughout a codebase _allows you, as the code author and consumer, to WRITE YOUR INTENT INTO THE CODE_. 
 - when a function should only work on number params, type definitions will explicitly describe the expectations of the function to take numbers as args
-## Move Errors 
+
+## What are types
+Types are declarations of allowed values:
+```js
+let water: number = 10;
+```
+above, water can be any number.  
+
+## Moves Errors from runtime to codetime
 With proper type definitions && validations, code will "break" in development before releasing to production.  
+
 ## Editors have caught up
 IDEs 'know' about ts. IDEs have handy tidbits for ts.
 
@@ -73,3 +82,11 @@ type JSObj = {
 
 function isJS(arg: JSVal){}
 ```
+
+## Top Types
+"Top" types describe anything.  
+
+### any
+`any` is a top type.  
+Any value in js can be assigned to the `any` type.  
+`unknown` vals, though, do not work with `any`.  
