@@ -220,8 +220,11 @@ console.log(listToObj(roomsList, getRoomName));
 
 ## Generics in action
 ```ts
-// typescript will FIGURE OUT which types it should use
-// the first <T> is the type-parameter list
+/* 
+  typescript will FIGURE OUT which types it should use
+  the first <T> is the type-parameter list
+  on a per-invocation-basis
+*/ 
 function wrapItemInArr<T>(itm:T): [T]{
   return [itm]
 }
