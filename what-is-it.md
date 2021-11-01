@@ -250,7 +250,7 @@ function mapObj<T, U>(
   inputObj: Dict<T>,
   mapCB: (arg: T, k: str) => U
 ): Dict<U>{
-    let res: Dict<T>: {};
+  let res: Dict<T>: {};
   for(let k in inputObj){
     const objVal = inputObj[k];
     res[k] = mapCB(objVal);
@@ -283,7 +283,14 @@ function reduceObj<T, V>(
   reducer: (curItm: V, itm: T) => V,
   initialVal: V
 ): V {
-  return V
+  let res = initialVal;
+
+  for(let k in inputObj){
+    const objVal = inputObj[k];
+    res = reducer(res, objVal)
+  }
+
+  return res;
 }
 
 ```
