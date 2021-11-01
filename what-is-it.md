@@ -240,3 +240,50 @@ wrapItemInArr(new Date())
 wrapItemInArr(new Regexp("/^A/"))
 // TS figures out its a RegExp
 ```
+
+## Generics Practice
+Create Generic types for map, reduce + filter array method-like functions on objects
+```ts
+// generic "T" return type for the Object
+// generic U for array 
+function mapObj<T, U>(
+  inputObj: Dict<T>,
+  mapCB: (arg: T, k: str) => U
+): Dict<U>{
+    let res: Dict<T>: {};
+  for(let k in inputObj){
+    const objVal = inputObj[k];
+    res[k] = mapCB(objVal);
+  }
+  return res;
+}
+
+
+// generic "T" return type
+// input Dictionary with matching type
+ 
+function filterObj<T>(
+  inputObj: Dict<T>, 
+  filterCB: (itm: T) => boolean
+): Dict<T>{
+  let res: Dict<T>: {};
+  for(let k in inputObj){
+    const objVal = inputObj[k];
+    if(filterCB(objVal)){
+      res[k] = objVal;
+    }
+  }
+  return res;
+}
+
+
+// 
+function reduceObj<T, V>(
+  inputObj: Dict<T>,
+  reducer: (curItm: V, itm: T) => V,
+  initialVal: V
+): V {
+  return V
+}
+
+```
