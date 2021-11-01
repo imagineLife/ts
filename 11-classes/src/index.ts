@@ -30,3 +30,22 @@ let van = new Vehicle('Chrysler','MV', 2012);
   - private
     only the instance itself can access the detail
 */ 
+
+
+class Building{
+  public material: string;
+  public doors: number;
+  public windows: number;
+
+  // only this building can see it
+  // protected writeUp = generateWriteup()
+  
+  // only this class itself can see it
+  // private uid = generateUID()
+
+  constructor(material: string, doors: number, windows: number){
+    this.material = material;
+    this.doors = doors;
+    this.windows = windows;
+  }
+}
