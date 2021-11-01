@@ -1,0 +1,11 @@
+{
+  "name": "first-try",
+  "license": "NOLICENSE",
+  "devDependencies": {
+    "typescript": "^4.3.2"
+  },
+  "scripts": {
+    "dev": "tsc --watch --preserveWatchOutput",
+    "build": "tsc"
+  }
+}
