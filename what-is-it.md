@@ -96,3 +96,52 @@ These describe things that can hold no possible value.
 Why?! Well... to explicitly state when a var can be worth nothing:
 - maybe in an `else` statement where all other `if` cases have been met
 - maybe in a `switch` default
+
+
+## Type Guards
+TypeGuards are logical code that perform based on the value / type of a var
+```js
+function errOrVal(): |['error', Error]|['success', {obj:'dummy val'}]{
+  // mock a random response
+  const goodRes = Math.random() > .5
+  if(goodRes){
+    return ['success', {obj:'dummy val'}]
+  }else{
+    ['error', new Error('bad res')]
+  }
+}
+
+const [res, val] = errOrVal();
+console.log({res, val})
+
+// leveraging type-guards via "Discriminated unions"
+
+if(res === 'error'){
+  // do err handling
+  console.log('ERROR HANDLER HERE')
+  return;
+}
+
+console.log('not an error')
+```
+- `Array.isArray(arrHere)` is a built-in type-guard
+- `keyVal in ObjectHere` is a built-in type-guard
+
+This can make the logic that "checks" for vals verbose though - lots of `if typeof potentialVar === "object" && typeof potentialVar.make === "string"... `
+
+a custom `isCarLike` function
+```ts
+// returns a boolean
+function isCarLike(testParam: any): valueToTest is CarLike{
+  return (
+    testParam &&
+    typeof testParam === "object" &&
+    "make" in testParam &&
+    "model" in testParam &&
+    "year" in testParam &&
+    typeof testParam.make === 'string' &&
+    typeof testParam.model === 'string' &&
+    typeof testParam.year === 'number'
+  )
+}
+```
