@@ -145,3 +145,95 @@ function isCarLike(testParam: any): valueToTest is CarLike{
   )
 }
 ```
+
+## TS and nullish vals
+null.  
+undefined.  
+void.  
+### Null
+Null indicates that null is present, and has no val.  
+
+### Undefined
+Undefined may mean... the val may never have been made, or have YET to be defined.  
+### Void
+this should be used for fn returns.  
+
+## Generics
+Creating types that are expressed by OTHER types.  
+Allows for clean re-use of code.  
+```ts
+// Lets TRANSFORM an arr to an obj
+const roomList = [
+  {
+    name: 'kitchen',
+    windows: 2,
+    doors: 2
+  },
+  {
+    name: 'living',
+    windows: 4,
+    doors: 3
+  },
+  {
+    name: 'bath',
+    windows: 1,
+    doors: 1 
+  },
+]
+
+// obj of rooms 
+const rooms = {
+  // arbitrrary key name
+  [k:string]: {
+    doors: number
+    windows: number
+    sqFt: number
+  }
+}
+
+// SOLUTION:
+// TYPE DEF
+interface RoomInfo{
+  doors: number
+  windows: number,
+  sqFt: number,
+  name: string
+}
+
+
+// return an arbitrary string from a fn param
+function listToObj(arr: RoomInfo, idGenFn: (param: RoomInfo) => string){
+  let resObj = {[k: string]: RoomInfo};
+
+  arr.forEach(e => {
+    const keyName = idGenFn(e)
+    resObj[keyName] = e;
+  })
+
+  return resObj;
+}
+
+// do it
+const getRoomName = (itm) => itm.name
+console.log(listToObj(roomsList, getRoomName));
+```
+
+## Generics in action
+```ts
+// typescript will FIGURE OUT which types it should use
+// the first <T> is the type-parameter list
+function wrapItemInArr<T>(itm:T): [T]{
+  return [itm]
+}
+
+// this will "figure out the type" in these 3 examples
+
+wrapItemInArr(3);
+// TS figures out its a number
+
+wrapItemInArr(new Date())
+// TS figures out its a date
+
+wrapItemInArr(new Regexp("/^A/"))
+// TS figures out its a RegExp
+```
