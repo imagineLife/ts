@@ -293,4 +293,17 @@ function reduceObj<T, V>(
   return res;
 }
 
+
+
+// interface + listToDict
+interface HasId{
+  id: string
+}
+
+function listToDict<T extends HasId>(list: T[]): Dict<T>{
+  const dict: Dict<HasId> = {}
+
+  list.forEach(itm => dict[itm.id] = itm;)
+  return dict;
+}
 ```
