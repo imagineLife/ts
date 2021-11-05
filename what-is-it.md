@@ -66,10 +66,43 @@ A Potato is both a type of VEGETABLE and type of STARCH.
 
 
 ## Interfaces or Aliases
-Consider when to use which:
+Interfaces are very similar to type aliases.  
+Interfaces, though, can be "extended" and can have types updated throughout the code. types cannot.  
+
+Interface vs type def:
+```ts
+
+// Interface && extending an interface
+interface Person {
+  name: string
+  age: number
+}
+interface Child extends Person {
+  schoolGrade: number
+}
+
+const Joe: Child = {
+  name: 'Joe',
+  age: 12,
+  schoolGrade: 7
+}
 
 
-## Example
+// Types && "extending" but adding content to a type
+type Building = {
+  walls: number
+  doors: number
+  windows: number
+}
+
+type House = Building & {
+  garage: boolean
+  deck: boolean
+  pool: boolean
+}
+```
+
+### Example
 ```ts
 type Prim = string | number | boolean | null
 
@@ -307,3 +340,7 @@ function listToDict<T extends HasId>(list: T[]): Dict<T>{
   return dict;
 }
 ```
+
+
+### Validates minimum requirements
+TS checks for the minimum requirements, not necessarily 1-for-1 presence & type validation.  
