@@ -8,3 +8,10 @@
 - Inference with conditional types
 - Indexed Access Types
 - Mapped Types
+
+
+## Declaration Merging
+Types && Values can be treated as single entities.  
+```ts
+
+```
