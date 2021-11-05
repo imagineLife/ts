@@ -76,3 +76,8 @@ TS needs specific config directions to "figure out" the default export.
 ```ts
 
 ```
+
+## Working with webpack
+See [webpack's ts docs](https://webpack.js.org/guides/typescript/) for all the deets. heres some short-hand notes:
+- need `ts-loader` to read the ts files
+- need to setup & config some deets in a `tsconfig.json` at the root of the project
