@@ -100,6 +100,18 @@ type House = Building & {
   deck: boolean
   pool: boolean
 }
+
+// adding vals to already-declared types
+
+// SUCCESS!!
+interface Person {
+  hairColor: string
+}
+
+// FAIL, as the type has already been defined elsewhere
+type Building = {
+  carpet: bool
+}
 ```
 
 ### Example
