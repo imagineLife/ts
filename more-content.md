@@ -250,3 +250,27 @@ type ConstructorArg<C> = C extends {
     - return FirstArg
 - else...
   - null
+
+## Indexed access types
+```ts
+interface Building{
+  exterior: {
+    walls: number;
+    windows: number;
+    doors: number;
+  };
+  interior: {
+    walls: number;
+    carpet: boolean;
+  }
+}
+let buildingInterior: Building['interior'];
+
+/*
+  MUST use square-bracket notation
+  CAN use unions && return a union
+  let InOrOut: Building['interior' | 'exterior'];
+*/ 
+```
+
+## Mapped Types
