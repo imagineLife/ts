@@ -190,3 +190,24 @@ let h = (typeof Date) extends { new (...args: any[]): any };
   
 */
 ```
+
+## Core types of TypeScript
+Some types are "built in".  
+
+### Extract  
+
+```ts
+// below, a mixed OR type
+type FavShapes = 
+|'square'
+|'circle'
+|'hexagram'
+| ['round','rounded','spherical']
+| { sides: 'many', corners: 'many' };
+
+// use EXTRACT to get FavShapes that are ONLY STRINGS
+type NamedFavShapes = Extract<FavShapes, string>
+// will return  |'square'|'circle'|'hexagram'
+```
+
+### Exclude  
