@@ -104,3 +104,17 @@ type DateSymbolPropNames = DatePropNames & symbol
 ```
 
 ### Typeof  
+store the `typeof` value in a type def -
+```ts
+async function myProm(){
+  const res = await Promise.all([
+    fetch('http://example.com'),
+    Promise.resolve('other mock promise res')
+  ])
+
+  // store the typeof in a type def
+  type ApiResType = typeof res;
+}
+
+
+```
