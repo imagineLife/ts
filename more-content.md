@@ -115,6 +115,31 @@ async function myProm(){
   // store the typeof in a type def
   type ApiResType = typeof res;
 }
+```
 
+## Conditional Types
+Ternaries exist in js.  
+```js
+const x  = 12
+const res =  x >= 10 ? 'yes' : 'no'
+```
 
+Similar stuff in ts
+```ts
+// not a lotta overlap between 2 classes
+class Grill{
+  startGas(){}
+  stopGas(){}
+}
+
+class Oven{
+  setTemp(){}
+}
+
+// new type from string!!
+type Cooker<T> = T extends "grill"? Grill : Oven;
+
+// in use
+let myFirstDevice: Cooker<"grill">;
+let mySecondDevice: Cooker<"oven">;
 ```
