@@ -274,3 +274,19 @@ let buildingInterior: Building['interior'];
 ```
 
 ## Mapped Types
+Like a looping behavior for types.  
+```ts
+type Veggie = {
+  name: string,
+  color: string
+  mass: number
+}
+
+// index signature in-use
+// for an arbitrary key, here's a specific type
+type Dict<T> = { [k:string]: T } 
+
+const VeggieSet: Dict<Veggie> = {}
+// each key in VeggieSet will be an item with type Veggie
+
+```
