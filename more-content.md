@@ -81,3 +81,26 @@ TS needs specific config directions to "figure out" the default export.
 See [webpack's ts docs](https://webpack.js.org/guides/typescript/) for all the deets. heres some short-hand notes:
 - need `ts-loader` to read the ts files
 - need to setup & config some deets in a `tsconfig.json` at the root of the project
+
+
+## Type Queries
+Get types from values.  
+Libraries might not expose type info.  
+With a type "query", types can be derived from a val.
+
+### Keyof
+In Js keys can be strings, numbers, sometimes symbols....
+```ts
+// all props types
+type DatePropNames = keyof Date
+
+// only the 'string' types
+// leveraging the intersection syntax
+type DateStringPropsNames = DatePropNames & string
+
+// only the 'symbol' props
+// leveraging the intersection syntax
+type DateSymbolPropNames = DatePropNames & symbol
+```
+
+### Typeof  
