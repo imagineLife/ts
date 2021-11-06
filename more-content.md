@@ -215,3 +215,13 @@ type ManyCornersFavShapes = Extract<FavShapes, {corners: 'many'}>
 ```
 
 ### Exclude  
+The [opposite of extract](https://www.typescriptlang.org/docs/handbook/utility-types.html#excludetype-excludedunion), return all non-matching types from a types set.
+
+### Exclude and Extract Shorthand Explanations
+```ts
+// pass 2 types
+type Exclude<T,U> = T extends U ? never : T;
+
+// pass 2 types
+type Extract<T,U> = T extends U ? T : never;
+```
