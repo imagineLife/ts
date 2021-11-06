@@ -225,3 +225,28 @@ type Exclude<T,U> = T extends U ? never : T;
 // pass 2 types
 type Extract<T,U> = T extends U ? T : never;
 ```
+
+### The capital letter placeholders
+Capital "T" is the norm syntax.  
+ 
+### Infer
+Can only be used in a conditional expression of a conditional type.  
+
+A complex example with `infer`:
+```ts
+type ConstructorArg<C> = C extends {
+  new (arg: infer FirstArg, ...args: any[]): any
+}
+  ? FirstArg
+  : never
+```
+- a generic type
+- takes a type param "C"
+- if...
+  - "new"able
+  - takes a first arg
+  - MATCH!
+    - store first arg in FirstArg
+    - return FirstArg
+- else...
+  - null
