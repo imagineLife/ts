@@ -208,6 +208,10 @@ type FavShapes =
 // use EXTRACT to get FavShapes that are ONLY STRINGS
 type NamedFavShapes = Extract<FavShapes, string>
 // will return  |'square'|'circle'|'hexagram'
+
+// use EXTRACT to get FavShapes that are ONLY objects with corners many
+type ManyCornersFavShapes = Extract<FavShapes, {corners: 'many'}>
+
 ```
 
 ### Exclude  
