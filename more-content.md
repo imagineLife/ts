@@ -161,6 +161,8 @@ let h = (typeof Date) extends { new (...args: any[]): any };
 // answers below
 // 
 
+// a principle: the 'extends' keyword expects more specific type details from left-comparator-to-right
+// maybe and "LEFT an extension of RIGHT"
 /*
   a = true
     64 FITS in a number
