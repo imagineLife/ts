@@ -31,6 +31,6 @@ Reviewing typing the `children` through many options...
 - `React.ElementType` wont render text as a child
 - `JSX.Element` wont render multiple children
 - `JSX.Element[]` wont render text, but will render multiple children
-- `React.ReactChildren` is looking to map through the children
+- `React.Children` is looking to map through the children
 - `React.ReactChild` wont render multiple children
 - `React.ReactNode | React.ReactNode[]` works!!
