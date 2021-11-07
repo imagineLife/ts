@@ -277,7 +277,7 @@ let buildingInterior: Building['interior'];
 Like a looping behavior for types.  
 ```ts
 type Veggie = {
-  name: string,
+  name: string
   color: string
   mass: number
 }
@@ -289,4 +289,25 @@ type Dict<T> = { [k:string]: T }
 const VeggieSet: Dict<Veggie> = {}
 // each key in VeggieSet will be an item with type Veggie
 
+// Mapped Type will help specify SPECIFIC strings in the object
+// used in this Shoe example
+
+type Shoe = {
+  laces: bool
+}
+
+type MyRecord = { [ShoeKey in 'sneaker'|'boot']: Shoe }
+
+function printShoeCollection(shoeCollection: MyRecord){
+  console.log(shoeCollection.sneaker)
+  console.log(shoeCollection.boot)
+
+  /* 
+    WONT WORK, will throw a type error
+    console.log(shoeCollection.slipper)
+  */ 
+}
+
+// a generic record version of MyRecord above
+type AnonRecord<KeyType, ValType> = { [Key in KeyType]: ValType}
 ```
