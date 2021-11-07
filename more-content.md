@@ -310,4 +310,9 @@ function printShoeCollection(shoeCollection: MyRecord){
 
 // a generic record version of MyRecord above
 type AnonRecord<KeyType, ValType> = { [Key in KeyType]: ValType}
+
+// now....the built-in Record type
+type Record<K extends keyof any, T> = {
+  [P in K]: T
+}
 ```
