@@ -106,8 +106,16 @@ interface RGBContextType extends RGBStateType {
   dispatch: React.Dispatch<AdjustmentActionType>
 }
 
-// 
-export const RGBContext = React.createContext<RGBContextType>(null);
+/*
+  NOTICE!
+  {} as RGBContextType is the default value for the RGBContextType
+  telling TS that the default value is an empty obj
+  BUT
+  we know the type will be of the type that we declare in the context val
+  THIS
+    makes it so that USING the state values throughout the code base will work without `obj?.blue` conditional chaining of each value oof the obj
+*/ 
+export const RGBContext = React.createContext<RGBContextType>({} as RGBContextType);
 export const RGBContextProvider = ({children}: {children: React.ReactNode }) => {
   const [rgbColors, dispatch] = React.useReducer(reducer, {
     red:0,
