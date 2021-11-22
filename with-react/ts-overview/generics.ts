@@ -27,3 +27,20 @@ const linkB: Link<number> = {
 
 // HERE is where the break will be
 linkA.next = linkB;
+
+
+
+
+
+
+/*
+  Another example
+*/
+
+function makeNode<T>(val: T): Link<T>{
+  return { value: val }
+}
+
+// the types, here, are inferred from the fn itself above
+const linkC = makeNode('water');
+const linkD = makeNode(1234);
