@@ -46,7 +46,14 @@ export interface RGBStateType {
   blue: number;
 }
 
-// reducer.ts
+
+
+
+
+
+/*
+  reducer.ts
+*/ 
 export type AdjustmentActionType = {
   type: 'ADJUST_RED'| 'ADJUST_GREEN' | 'ADJUST_BLUE',
   payload: number
@@ -82,4 +89,33 @@ export const reducer = (
   }
   return state
 }
+
+
+
+
+/*
+  context file
+  context.tsx
+*/
+import * as react from React;
+import { AdjustmentActionType, reducer } from './reducer';
+import { RGBStateType } from './types'
+
+// a type that extends the state type PLUS a dispatch fn
+interface RGBContextType extends RGBStateType {
+  dispatch: React.Dispatch<AdjustmentActionType>
+}
+
+// 
+export const RGBContext = React.createContext<RGBContextType>(null);
+export const RGBContextProvider = ({children}: {children: React.ReactNode }) => {
+  const [rgbColors, dispatch] = React.useReducer(reducer, {
+    red:0,
+    green: 0,
+    blue: 0
+  })
+
+  return <RGBContext.Provider value={{...rgb, dispatch}}>{children}</RGBContext.Provider>
+}
 ```
+
