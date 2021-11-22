@@ -44,3 +44,24 @@ function makeNode<T>(val: T): Link<T>{
 // the types, here, are inferred from the fn itself above
 const linkC = makeNode('water');
 const linkD = makeNode(1234);
+
+
+
+
+
+/*
+  Generic fns
+*/
+function identity<T>(val: T): T {
+  return value: val
+}
+
+const a = identity('apple')
+
+// don't forget
+//  the <T> tells TS "hey, im using an unknown generic in this"
+function tap<T>(arg: T, fn: (T) => void): T{
+  fn(arr);
+  return arg;
+}
+
