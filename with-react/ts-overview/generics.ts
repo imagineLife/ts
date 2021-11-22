@@ -8,7 +8,7 @@
 */ 
 type Link<T> = {
   value: T,
-  next: Link<T>
+  next?: Link<T>
 }
 
 /*
