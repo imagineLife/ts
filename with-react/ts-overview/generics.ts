@@ -10,3 +10,20 @@ type Link<T> = {
   value: T,
   next: Link<T>
 }
+
+/*
+  this will BLOCK connecting of 2 Links with different value types
+*/ 
+
+// WONT WORK
+// declare 2 links
+const linkA: Link<string> = {
+  value: 'sauce'
+}
+
+const linkB: Link<number> = {
+  value : 8675
+}
+
+// HERE is where the break will be
+linkA.next = linkB;
