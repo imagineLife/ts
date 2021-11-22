@@ -52,6 +52,11 @@ export type AdjustmentActionType = {
   payload: number
 }
 
+/*
+  Definition of state gets passed 2x
+    - input state param
+    - reducer fn return type
+*/ 
 export const reducer = (
   state: RGBStateType,
   action: AdjustmentActionType
