@@ -40,16 +40,41 @@ export ThemeProvider = ({children}: {children: React.ReactNode }) => {
 A State-Management Context...
 ```ts
 // types.tsx
-export interface RGBColorType {
+export interface RGBStateType {
   red: number;
   green: number;
   blue: number;
 }
 
-// context.tsx
-import * as React, { createContext } from 'react';
+// reducer.ts
+export type AdjustmentActionType = {
+  type: 'ADJUST_RED'| 'ADJUST_GREEN' | 'ADJUST_BLUE',
+  payload: number
+}
 
-import { RGBColorType } from './types';
-
-
+export const reducer = (
+  state: RGBStateType,
+  action: AdjustmentActionType
+): RGBStateType => {
+  let { type, payload } = action;
+  if(type === 'ADJUST_RED'){
+    return {
+      ...state,
+      red: payload
+    }
+  }
+  if(type === 'ADJUST_GREEN'){
+    return {
+      ...state,
+      green: payload
+    }
+  }
+  if(type === 'ADJUST_BLUE'){
+    return {
+      ...state,
+      blue: payload
+    }
+  }
+  return state
+}
 ```
