@@ -80,4 +80,22 @@ type PickedBigType = Pick<BigObjType, "sauce" } "water">
 //  Omit, take all but named vals
 typeOmittedObjType = Omit<BigObjType, "water" | "bingo">
 // returns {asdf: "qwer", sauce: "saucy"}
+
+
+
+
+
+// React Props
+// React.HTMLProps
+// HTMLXXXElement props
+const MyInput = (props: <Props & React.HTMLProps<HTMLInputElement>>) => {
+  // <input .../>
+}
+
+
+
+
+
+// ComponentProps
+type MyComponentPropsType = React.ComponentProps<typeof MyComponent>
 ```
