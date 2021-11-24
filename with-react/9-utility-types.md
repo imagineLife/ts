@@ -133,4 +133,17 @@ type HzAlignType = 'left' | 'center' | 'right';
 // want to allow JUST 'center'
 // want to force type err on center-center
 type VertHzAlignType = Exclude<`${VertAlignType}-${HzAlignType}` | 'center', 'center-center'>
+
+// useful in a reducer
+type ColorsType = 'RED' | 'GREEN' | 'YELLOW';
+type ActionsType = `CHANGE_TO_${ColorTypes}`
+
+export type AdjustLightType = {
+  type: ActionsType
+  payload: ColorsType
+}
+
+// mock
+type StateType = { ... }
+function reducer(state: StateType, action: AdjustLightType)
 ```
