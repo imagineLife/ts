@@ -127,5 +127,10 @@ type AdjectiveType = 'Jumpy' | 'Squirly' | 'Gooey'
 type CreatureType = 'Spider' | 'Bug' | 'Crawler';
 type CreepyCrawlyType = `${AdjectiveType}-${CreatureType}`
 
-
+type VertAlignType = 'top' | 'center' | 'bottom';
+type HzAlignType = 'left' | 'center' | 'right';
+//  want to allow any combination of vert-horz
+// want to allow JUST 'center'
+// want to force type err on center-center
+type VertHzAlignType = Exclude<`${VertAlignType}-${HzAlignType}` | 'center', 'center-center'>
 ```
