@@ -70,4 +70,46 @@ function App(){
   )
 }
 
+
+
+
+
+// v3 WITH TYPES!
+// define types
+// withCharacter must render a component that must have a 'character' prop
+
+// ts + jsx workaround is a trailing comma inside the <T,>
+/*
+  React.Component will "find out" what props are in the component that are passed
+*/
+function withCharacter<T>(Component: React.ComponentType<T>) => {
+  // return a new fn component
+  return (props: T) => {
+    const [char, setChar] = React.useState<CharType | null>(null)
+    const [loading, setLoading] = React.useState(false)
+
+    React.useEffect(() => {
+      fetchChars().then(c => {
+        setCharacter(c)
+        setLoading(false);
+      })
+    }, [])
+
+    if(loading) return <Loading />
+    return <Component character={char}/>
+  }
+}
+
+
+
+// HOC applied to child component
+const CharWithInfoAndLoading = withCharacter(CharacterInfo);
+
+function App(){
+  return(
+    <main>
+      <CharWithInfoAndLoading />
+    </main>
+  )
+}
 ```
