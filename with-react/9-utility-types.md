@@ -116,4 +116,16 @@ type TableRowProps = {
   heading: Capitalize<keyof CharacterType>;
   value: CharacterType[keyof CharacterType];
 }
+
+
+
+
+
+// Template Literal, string interpolation + coercion
+// MUST be a combination of 2 strings
+type AdjectiveType = 'Jumpy' | 'Squirly' | 'Gooey'
+type CreatureType = 'Spider' | 'Bug' | 'Crawler';
+type CreepyCrawlyType = `${AdjectiveType}-${CreatureType}`
+
+
 ```
