@@ -98,4 +98,22 @@ const MyInput = (props: <Props & React.HTMLProps<HTMLInputElement>>) => {
 
 // ComponentProps
 type MyComponentPropsType = React.ComponentProps<typeof MyComponent>
+
+
+
+
+
+// Defining Table Row Headres + values from a static type set
+type ItemOfInterestType = {
+  height: number;
+  weight: number;
+  age: number;
+  hairColor: string;
+  gender: string;
+}
+
+type TableRowProps = {
+  heading: Capitalize<keyof CharacterType>;
+  value: CharacterType[keyof CharacterType];
+}
 ```
