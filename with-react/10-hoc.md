@@ -116,3 +116,105 @@ function App(){
   )
 }
 ```
+
+Another example
+- a `withCurUser` HOC
+  - passes user info
+  - accepts a `salutaiton` prop passed "manually"
+  - returns the `NameTag` component
+```ts
+
+// STARTING PLACE
+type UserModel = {
+  accountId: string;
+  displayName: string;
+  isVerified: boolean;
+};
+
+type NameTagProps = {
+  salutation: string;
+  user: UserModel;
+};
+
+const currentUser = {
+  displayName: "J Mascis",
+  accountId: "123",
+  isVerified: true
+};
+
+const NameTag = ({ user, salutation }: NameTagProps) => {
+  return (
+    <main>
+      <header>
+        <h1>{salutation}</h1>
+        <p>My Name Is</p>
+      </header>
+      <section className="display-name">
+        <p>{user.displayName}</p>
+      </section>
+      <footer />
+    </main>
+  );
+};
+
+const Application = () => <NameTag salutation="Howdy" user={currentUser} />;
+
+// export default Application;
+
+
+
+
+
+
+
+// WITH HOT TS detail
+
+type UserModel = {
+  accountId: string;
+  displayName: string;
+  isVerified: boolean;
+};
+
+type NameTagProps = {
+  salutation: string;
+  user: UserModel;
+};
+
+const currentUser = {
+  displayName: "J Mascis",
+  accountId: "123",
+  isVerified: true
+};
+
+const NameTag = ({ user, salutation }: NameTagProps) => {
+  return (
+    <main>
+      <header>
+        <h1>{salutation}</h1>
+        <p>My Name Is</p>
+      </header>
+      <section className="display-name">
+        <p>{user.displayName}</p>
+      </section>
+      <footer />
+    </main>
+  );
+};
+
+// HOC and HOC type defs
+type withCurUserPropsType = {
+  user: UserModel
+}
+
+function withCurUser<T>(Component: React.ComponentType<T>){
+  return (props: Omit<T, keyof withCurUserPropsType>) => {
+    return <Component {...props as T} user={currentUser} />
+  }
+}
+
+const NameTagWithUser = withCurUser(NameTag);
+const Application = () => <NameTagWithUser salutation="Howdy"/>;
+
+export default Application;
+
+```
