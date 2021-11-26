@@ -206,7 +206,7 @@ type withCurUserPropsType = {
   user: UserModel
 }
 
-function withCurUser<T>(Component: React.ComponentType<T>){
+function withCurUser<T extends withCurUserPropsType>(Component: React.ComponentType<T>){
   return (props: Omit<T, keyof withCurUserPropsType>) => {
     return <Component {...props as T} user={currentUser} />
   }
